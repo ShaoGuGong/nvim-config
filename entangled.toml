@@ -1,0 +1,9 @@
+version = "2.4"
+style = "basic"
+watch_list = ["README.md", "docs/**/*.md"]
+ignore_list = []
+
+[[languages]]
+name = "Lua"
+identifiers = ["lua"]
+comment = { open = "--" }
