@@ -1,5 +1,21 @@
 # Config
 
+---
+
+## Utils
+```lua
+--| file: lua/config/utils.lua
+local utils = {}
+utils.gh = function(repo_url)
+    return "https://github.com/" .. repo_url
+end
+
+utils.cb = function(repo_url)
+    return "https://codeberg.org/" .. repo_url
+end
+return utils
+```
+
 ## Auto Commands
 
 ```lua

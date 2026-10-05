@@ -2,7 +2,28 @@
 
 ---
 
-## Evergarden
+## Setting
+
+```lua
+--| file: lua/config/colorschemes.lua
+local utils = require("config.utils")
+local gh, cb = utils.gh, utils.cb
+<<colorscheme-list>>
+return colorschemes
+```
+
+```lua
+--| id: setting-colorscheme
+local colorschemes = require("config.colorschemes")
+vim.pack.add(colorschemes)
+vim.cmd("colorscheme vscode")
+```
+
+---
+
+## Color Schemes
+
+### Evergarden
 
 ```lua
 --| file: lua/plugins/colorschemes.lua
@@ -25,7 +46,7 @@ require("evergarden").setup({
 })
 ```
 
-## Nordic
+### Nordic
 
 ```lua
 --| file: lua/plugins/colorschemes.lua
@@ -38,7 +59,7 @@ require("nordic").setup({
 })
 ```
 
-## Kanagawa
+### Kanagawa
 
 ```lua
 --| file: lua/plugins/colorschemes.lua
@@ -72,7 +93,7 @@ require("kanagawa").setup({
 })
 ```
 
-## VSCode
+### VSCode
 
 ```lua
 --| file: lua/plugins/colorschemes.lua
@@ -81,7 +102,7 @@ require("vscode").setup({
 })
 ```
 
-## Gruvbox
+### Gruvbox
 
 ```lua
 --| file: lua/plugins/colorschemes.lua
@@ -90,11 +111,3 @@ require("gruvbox").setup({
 })
 ```
 
---- 
-
-## Setting
-
-```lua
---| file: lua/plugins/colorschemes.lua
-vim.cmd("colorscheme kanagawa")
-```

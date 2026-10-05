@@ -5,24 +5,11 @@
 ## Download Plugins use vim.pack.add
 
 ```lua
---| id: repo_url
--- helper function to get repo url
-local gh = function(repo_url)
-    return "https://github.com/" .. repo_url
-end
-
-local cb = function(repo_url)
-    return "https://codeberg.org/" .. repo_url
-end
-```
-
-```lua
 --| file: lua/config/plugins.lua
-<<repo_url>>
-<<colorscheme-list>>
+local utils = require("config.utils")
+local gh, cb = utils.gh, utils.cb
 <<plugin-list>>
 
-vim.list_extend(plugins, colorschemes)
 return plugins
 ```
 
@@ -131,7 +118,7 @@ require("blink.cmp").setup({
 ### compile-mode
 
 ```lua
---file: lua/plugins/compile-mode.lua
+--| file: lua/plugins/compile-mode.lua
 vim.g.baleia = require("baleia").setup({})
 -- Command to colorize the current buffer
 vim.api.nvim_create_user_command("BaleiaColorize", function()
@@ -140,11 +127,13 @@ end, { bang = true })
 -- Command to show logs
 vim.api.nvim_create_user_command("BaleiaLogs", vim.cmd.messages, { bang = true })
 
-require("which-key").add({
+local wk = require("which-key")
+wk.add({
     {
         "<leader>cc",
         "<CMD>Compile<CR>",
         desc = "Compile command",
+        mode = "n",
     },
 })
 vim.g.compile_mode = {
@@ -262,7 +251,7 @@ wk.add({
 ### Indent-blankline
 
 ```lua
---file: lua/plugins/indent-blankline.lua
+--| file: lua/plugins/indent-blankline.lua
 require("ibl").setup({
     indent = { char = "╎" },
 })
@@ -271,7 +260,7 @@ require("ibl").setup({
 ### Tiny Inline Diagnostic
 
 ```lua
---\ file: lua/plugins/tiny-inline-diagnostic.lua
+--| file: lua/plugins/tiny-inline-diagnostic.lua
 require("tiny-inline-diagnostic").setup({
     preset = "classic",
     options = {

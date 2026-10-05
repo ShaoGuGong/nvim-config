@@ -32,6 +32,7 @@ download plugins in "./config/plugins.lua" and load them in 'init.lua':
 
 ```lua
 --| file: init.lua
+<<setting-colorscheme>>
 local plugins = require("config.plugins")
 vim.pack.add(plugins)
 
@@ -109,6 +110,10 @@ local colorschemes = {
 ```
 
 ---
+
+## Future Work
+
+[ ] add plugin link
 
 ## License 
 
